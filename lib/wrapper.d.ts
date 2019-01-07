@@ -32,7 +32,7 @@ declare class AnimationDirector {
     constructor(animation: Animation);
     alterFrames(frames: AnimatedFrame[]): void;
     start(animate: (frame: AnimatedFrame) => any): Promise<void>;
-    private _safeAnimate(frame, animate);
+    private _safeAnimate;
     stop(): void;
-    private _cloneSanitizedFrames(animatedFrames);
+    private _cloneSanitizedFrames;
 }

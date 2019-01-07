@@ -20,7 +20,7 @@ public:
     }
     
     static FLIFImageWrapper* create(uint32_t width, uint32_t height) {
-        return new FLIFImageWrapper(flif_create_image(width, height));
+        return new FLIFImageWrapper(flif_create_image_RGB(width, height));
     }
 
     static FLIFImageWrapper* createHDR(uint32_t width, uint32_t height) {
@@ -67,6 +67,10 @@ public:
 
     void writeRowRGBA8(uint32_t row, size_t buffer, size_t bufferSizeBytes) {
         flif_image_write_row_RGBA8(this->image, row, (void*)buffer, bufferSizeBytes);
+    }
+
+    void writeRowRGB8(uint32_t row, size_t buffer, size_t bufferSizeBytes) {
+        flif_image_write_row_RGB8(this->image, row, (void*)buffer, bufferSizeBytes);
     }
 
     val readRowRGBA8(uint32_t row) {
@@ -295,6 +299,7 @@ EMSCRIPTEN_BINDINGS(libflifem) {
         .property("depth", &FLIFImageWrapper::depth)
         .property("frameDelay", &FLIFImageWrapper::frameDelay, &FLIFImageWrapper::setFrameDelay)
         .function("writeRowRGBA8", &FLIFImageWrapper::writeRowRGBA8)
+        .function("writeRowRGB8", &FLIFImageWrapper::writeRowRGB8)
         .function("readRowRGBA8", &FLIFImageWrapper::readRowRGBA8)
         .function("writeRowRGBA16", &FLIFImageWrapper::writeRowRGBA16)
         .function("readRowRGBA16", &FLIFImageWrapper::readRowRGBA16)

@@ -144,7 +144,7 @@ function encode(input: libflifEncoderInput) {
         const multiplier = depth / 8;
         const image = (depth === 16 ? libflifem.FLIFImage.createHDR : libflifem.FLIFImage.create)(frame.width, frame.height);
         const bufferView = new (depth === 16 ? Uint16Array : Uint8Array)(frame.data);
-        const size = frame.width * 4;
+        const size = frame.width * 3;
         for (let i = 0; i < frame.height; i++) {
             const offset = size * i;
             const allocated = libflifem._malloc(size * multiplier);
@@ -153,7 +153,7 @@ function encode(input: libflifEncoderInput) {
                 image.writeRowRGBA16(i, allocated, size * multiplier);
             }
             else {
-                image.writeRowRGBA8(i, allocated, size * multiplier);
+                image.writeRowRGB8(i, allocated, size * multiplier);
             }
             libflifem._free(allocated);
         }

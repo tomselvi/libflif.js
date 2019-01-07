@@ -116,11 +116,11 @@ task("worker", async () => {
     await asyncExec(["tsc -p wrapper-worker/tsconfig.json"]);
 });
 
-desc("Build sample app");
-task("sample", async () => {
-    console.log("Building sample app...");
-    await asyncExec(["tsc -p sample/tsconfig.json"]);
-});
+// desc("Build sample app");
+// task("sample", async () => {
+//     console.log("Building sample app...");
+//     await asyncExec(["tsc -p sample/tsconfig.json"]);
+// });
 
 desc("Build JavaScript part");
 task("js", ["wrapper", "worker", "sample"]);

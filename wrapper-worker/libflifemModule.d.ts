@@ -12,8 +12,10 @@ declare interface FLIFImage extends EmscriptenClass {
     frameDelay: number;
 
     writeRowRGBA8(row: number, bufferPointer: number, bufferByteLength: number): void;
+    writeRowRGB8(row: number, bufferPointer: number, bufferByteLength: number): void;
     readRowRGBA8(row: number): Uint8Array;
     writeRowRGBA16(row: number, bufferPointer: number, bufferByteLength: number): void;
+    writeRowRGB16(row: number, bufferPointer: number, bufferByteLength: number): void;
     readRowRGBA16(row: number): void;
 
     clearBuffer(): void;

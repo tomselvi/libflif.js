@@ -87,7 +87,7 @@ namespace libflif {
     async function convertToArrayBuffer(blob: Blob) {
         return await new Promise<ArrayBuffer>((resolve, reject) => {
             const reader = new FileReader();
-            reader.onload = () => resolve(reader.result);
+            reader.onload = () => resolve(reader.result as any);
             reader.readAsArrayBuffer(blob);
         });
     }
