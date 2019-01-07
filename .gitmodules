@@ -1,6 +1,7 @@
 [submodule "submodules/flif"]
 	path = submodules/flif
-	url = https://github.com/FLIF-hub/FLIF.git
+	url = https://github.com/tomselvi/FLIF.git
+	branch = fix-rgb
 [submodule "submodules/apng-exporter"]
 	path = submodules/apng-exporter
 	url = https://github.com/SaschaNaz/apng-exporter.git
